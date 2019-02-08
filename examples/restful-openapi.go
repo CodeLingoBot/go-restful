@@ -63,7 +63,7 @@ func (u UserResource) WebService() *restful.WebService {
 	return ws
 }
 
-// GET http://localhost:8080/users
+// findAllUsers gets http://localhost:8080/users
 //
 func (u UserResource) findAllUsers(request *restful.Request, response *restful.Response) {
 	list := []User{}
@@ -73,7 +73,7 @@ func (u UserResource) findAllUsers(request *restful.Request, response *restful.R
 	response.WriteEntity(list)
 }
 
-// GET http://localhost:8080/users/1
+// findUser gets http://localhost:8080/users/1
 //
 func (u UserResource) findUser(request *restful.Request, response *restful.Response) {
 	id := request.PathParameter("user-id")
@@ -85,7 +85,7 @@ func (u UserResource) findUser(request *restful.Request, response *restful.Respo
 	}
 }
 
-// PUT http://localhost:8080/users/1
+// updateUser; PUT http://localhost:8080/users/1
 // <User><Id>1</Id><Name>Melissa Raspberry</Name></User>
 //
 func (u *UserResource) updateUser(request *restful.Request, response *restful.Response) {
@@ -99,7 +99,7 @@ func (u *UserResource) updateUser(request *restful.Request, response *restful.Re
 	}
 }
 
-// PUT http://localhost:8080/users/1
+// createUser; PUT http://localhost:8080/users/1
 // <User><Id>1</Id><Name>Melissa</Name></User>
 //
 func (u *UserResource) createUser(request *restful.Request, response *restful.Response) {
@@ -113,7 +113,7 @@ func (u *UserResource) createUser(request *restful.Request, response *restful.Re
 	}
 }
 
-// DELETE http://localhost:8080/users/1
+// removeUser; DELETE http://localhost:8080/users/1
 //
 func (u *UserResource) removeUser(request *restful.Request, response *restful.Response) {
 	id := request.PathParameter("user-id")

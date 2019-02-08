@@ -27,7 +27,7 @@ func NewRequest(httpRequest *http.Request) *Request {
 	} // empty parameters, attributes
 }
 
-// If ContentType is missing or */* is given then fall back to this type, otherwise
+// DefaultRequestContentType; If ContentType is missing or */* is given then fall back to this type, otherwise
 // a "Unable to unmarshal content of type:" response is returned.
 // Valid values are restful.MIME_JSON and restful.MIME_XML
 // Example:

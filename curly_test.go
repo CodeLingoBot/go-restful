@@ -21,7 +21,7 @@ var requestPaths = []struct {
 	{"/a/b/c/q", "/"},
 }
 
-// go test -v -test.run TestCurlyDetectWebService ...restful
+// TestCurlyDetectWebService; go test -v -test.run TestCurlyDetectWebService ...restful
 func TestCurlyDetectWebService(t *testing.T) {
 	ws1 := new(WebService).Path("/")
 	ws2 := new(WebService).Path("/p")
@@ -63,7 +63,7 @@ var serviceDetects = []struct {
 	{"/p/q/r", true, "/p/q"},
 }
 
-// go test -v -test.run Test_detectWebService ...restful
+// Test_detectWebService; go test -v -test.run Test_detectWebService ...restful
 func Test_detectWebService(t *testing.T) {
 	router := CurlyRouter{}
 	ws1 := new(WebService).Path("/")
@@ -115,7 +115,7 @@ var routeMatchers = []struct {
 	{"/basepath/{resource:*}", "/basepath/some/other/location/test.xml", true, 1, 1},
 }
 
-// clear && go test -v -test.run Test_matchesRouteByPathTokens ...restful
+// Test_matchesRouteByPathTokens; clear && go test -v -test.run Test_matchesRouteByPathTokens ...restful
 func Test_matchesRouteByPathTokens(t *testing.T) {
 	router := CurlyRouter{}
 	for i, each := range routeMatchers {
@@ -134,7 +134,7 @@ func Test_matchesRouteByPathTokens(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestExtractParameters_Wildcard1 ...restful
+// TestExtractParameters_Wildcard1; clear && go test -v -test.run TestExtractParameters_Wildcard1 ...restful
 func TestExtractParameters_Wildcard1(t *testing.T) {
 	params := doExtractParams("/fixed/{var:*}", 2, "/fixed/remainder", t)
 	if params["var"] != "remainder" {
@@ -142,7 +142,7 @@ func TestExtractParameters_Wildcard1(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestExtractParameters_Wildcard2 ...restful
+// TestExtractParameters_Wildcard2; clear && go test -v -test.run TestExtractParameters_Wildcard2 ...restful
 func TestExtractParameters_Wildcard2(t *testing.T) {
 	params := doExtractParams("/fixed/{var:*}", 2, "/fixed/remain/der", t)
 	if params["var"] != "remain/der" {
@@ -150,7 +150,7 @@ func TestExtractParameters_Wildcard2(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestExtractParameters_Wildcard3 ...restful
+// TestExtractParameters_Wildcard3; clear && go test -v -test.run TestExtractParameters_Wildcard3 ...restful
 func TestExtractParameters_Wildcard3(t *testing.T) {
 	params := doExtractParams("/static/{var:*}", 2, "/static/test/sub/hi.html", t)
 	if params["var"] != "test/sub/hi.html" {
@@ -165,7 +165,7 @@ func TestExtractParameters_Wildcard4(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestCurly_ISSUE_34 ...restful
+// TestCurly_ISSUE_34; clear && go test -v -test.run TestCurly_ISSUE_34 ...restful
 func TestCurly_ISSUE_34(t *testing.T) {
 	ws1 := new(WebService).Path("/")
 	ws1.Route(ws1.GET("/{type}/{id}").To(curlyDummy))
@@ -179,7 +179,7 @@ func TestCurly_ISSUE_34(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestCurly_ISSUE_34_2 ...restful
+// TestCurly_ISSUE_34_2; clear && go test -v -test.run TestCurly_ISSUE_34_2 ...restful
 func TestCurly_ISSUE_34_2(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Route(ws1.GET("/network/{id}").To(curlyDummy))
@@ -193,7 +193,7 @@ func TestCurly_ISSUE_34_2(t *testing.T) {
 	}
 }
 
-// clear && go test -v -test.run TestCurly_JsonHtml ...restful
+// TestCurly_JsonHtml; clear && go test -v -test.run TestCurly_JsonHtml ...restful
 func TestCurly_JsonHtml(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Path("/")
@@ -209,7 +209,7 @@ func TestCurly_JsonHtml(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestCurly_ISSUE_137 ...restful
+// TestCurly_ISSUE_137; go test -v -test.run TestCurly_ISSUE_137 ...restful
 func TestCurly_ISSUE_137(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Route(ws1.GET("/hello").To(curlyDummy))
@@ -222,7 +222,7 @@ func TestCurly_ISSUE_137(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestCurly_ISSUE_137_2 ...restful
+// TestCurly_ISSUE_137_2; go test -v -test.run TestCurly_ISSUE_137_2 ...restful
 func TestCurly_ISSUE_137_2(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Route(ws1.GET("/hello").To(curlyDummy))

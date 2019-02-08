@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// go test -v -test.run TestOptionsFilter ...restful
+// TestOptionsFilter; go test -v -test.run TestOptionsFilter ...restful
 func TestOptionsFilter(t *testing.T) {
 	tearDown()
 	ws := new(WebService)

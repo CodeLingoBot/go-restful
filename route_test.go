@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-// accept should match produces
+// TestMatchesAcceptPlainTextWhenProducePlainTextAsLast checks a case when should match produces
 func TestMatchesAcceptPlainTextWhenProducePlainTextAsLast(t *testing.T) {
 	r := Route{Produces: []string{"application/json", "text/plain"}}
 	if !r.matchesAccept("text/plain") {
@@ -12,7 +12,7 @@ func TestMatchesAcceptPlainTextWhenProducePlainTextAsLast(t *testing.T) {
 	}
 }
 
-// accept should match produces
+// TestMatchesAcceptStar checks a case when should match produces
 func TestMatchesAcceptStar(t *testing.T) {
 	r := Route{Produces: []string{"application/xml"}}
 	if !r.matchesAccept("*/*") {
@@ -20,7 +20,7 @@ func TestMatchesAcceptStar(t *testing.T) {
 	}
 }
 
-// accept should match produces
+// TestMatchesAcceptIE checks a case when should match produces
 func TestMatchesAcceptIE(t *testing.T) {
 	r := Route{Produces: []string{"application/xml"}}
 	if !r.matchesAccept("text/html, application/xhtml+xml, */*") {
@@ -28,7 +28,7 @@ func TestMatchesAcceptIE(t *testing.T) {
 	}
 }
 
-// accept should match produces
+// TestMatchesAcceptXml checks a case when should match produces
 func TestMatchesAcceptXml(t *testing.T) {
 	r := Route{Produces: []string{"application/xml"}}
 	if r.matchesAccept("application/json") {
@@ -39,7 +39,7 @@ func TestMatchesAcceptXml(t *testing.T) {
 	}
 }
 
-// accept should match produces
+// TestMatchesAcceptAny checks a case when should match produces
 func TestMatchesAcceptAny(t *testing.T) {
 	r := Route{Produces: []string{"*/*"}}
 	if !r.matchesAccept("application/json") {
@@ -50,7 +50,7 @@ func TestMatchesAcceptAny(t *testing.T) {
 	}
 }
 
-// content type should match consumes
+// TestMatchesContentTypeXml checks a case when type should match consumes
 func TestMatchesContentTypeXml(t *testing.T) {
 	r := Route{Consumes: []string{"application/xml"}}
 	if r.matchesContentType("application/json") {
@@ -61,7 +61,7 @@ func TestMatchesContentTypeXml(t *testing.T) {
 	}
 }
 
-// content type should match consumes
+// TestMatchesContentTypeCharsetInformation checks a case when type should match consumes
 func TestMatchesContentTypeCharsetInformation(t *testing.T) {
 	r := Route{Consumes: []string{"application/json"}}
 	if !r.matchesContentType("application/json; charset=UTF-8") {

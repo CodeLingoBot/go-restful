@@ -56,7 +56,7 @@ func (u UserService) Register() {
 	restful.Add(ws)
 }
 
-// GET http://localhost:8080/users/1
+// findUser gets http://localhost:8080/users/1
 //
 func (u UserService) findUser(request *restful.Request, response *restful.Response) {
 	c := appengine.NewContext(request.Request)
@@ -70,7 +70,7 @@ func (u UserService) findUser(request *restful.Request, response *restful.Respon
 	}
 }
 
-// PATCH http://localhost:8080/users
+// updateUser; PATCH http://localhost:8080/users
 // <User><Id>1</Id><Name>Melissa Raspberry</Name></User>
 //
 func (u *UserService) updateUser(request *restful.Request, response *restful.Response) {
@@ -93,7 +93,7 @@ func (u *UserService) updateUser(request *restful.Request, response *restful.Res
 	}
 }
 
-// PUT http://localhost:8080/users/1
+// createUser; PUT http://localhost:8080/users/1
 // <User><Id>1</Id><Name>Melissa</Name></User>
 //
 func (u *UserService) createUser(request *restful.Request, response *restful.Response) {
@@ -117,7 +117,7 @@ func (u *UserService) createUser(request *restful.Request, response *restful.Res
 	}
 }
 
-// DELETE http://localhost:8080/users/1
+// removeUser; DELETE http://localhost:8080/users/1
 //
 func (u *UserService) removeUser(request *restful.Request, response *restful.Response) {
 	c := appengine.NewContext(request.Request)

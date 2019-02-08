@@ -7,7 +7,7 @@ import (
 
 const MIME_MSGPACK = "application/x-msgpack" // Accept or Content-Type used in Consumes() and/or Produces()
 
-// NewEntityAccessorMPack returns a new EntityReaderWriter for accessing MessagePack content.
+// NewEntityAccessorMsgPack returns a new EntityReaderWriter for accessing MessagePack content.
 // This package is not initialized with such an accessor using the MIME_MSGPACK contentType.
 func NewEntityAccessorMsgPack() restful.EntityReaderWriter {
 	return entityMsgPackAccess{}

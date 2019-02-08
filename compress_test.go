@@ -11,7 +11,7 @@ import (
 	"testing"
 )
 
-// go test -v -test.run TestGzip ...restful
+// TestGzip; go test -v -test.run TestGzip ...restful
 func TestGzip(t *testing.T) {
 	EnableContentEncoding = true
 	httpRequest, _ := http.NewRequest("GET", "/test", nil)

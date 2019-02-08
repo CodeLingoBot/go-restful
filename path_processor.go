@@ -18,7 +18,7 @@ type PathProcessor interface {
 
 type defaultPathProcessor struct{}
 
-// Extract the parameters from the request url path
+// ExtractParameters; the parameters from the request url path
 func (d defaultPathProcessor) ExtractParameters(r *Route, _ *WebService, urlPath string) map[string]string {
 	urlParts := tokenizePath(urlPath)
 	pathParameters := map[string]string{}
@@ -49,7 +49,7 @@ func (d defaultPathProcessor) ExtractParameters(r *Route, _ *WebService, urlPath
 	return pathParameters
 }
 
-// Untokenize back into an URL path using the slash separator
+// untokenizePath; back into an URL path using the slash separator
 func untokenizePath(offset int, parts []string) string {
 	var buffer bytes.Buffer
 	for p := offset; p < len(parts); p++ {

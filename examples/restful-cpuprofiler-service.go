@@ -27,7 +27,7 @@ func NewProfileService(rootPath string, outputFilename string) *ProfilingService
 	return ps
 }
 
-// Add this ProfileService to a restful Container
+// AddWebServiceTo; Add this ProfileService to a restful Container
 func (p ProfilingService) AddWebServiceTo(container *restful.Container) {
 	ws := new(restful.WebService)
 	ws.Path(p.rootPath).Consumes("*/*").Produces(restful.MIME_JSON)

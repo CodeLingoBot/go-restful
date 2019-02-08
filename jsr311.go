@@ -64,6 +64,7 @@ func (RouterJSR311) extractParams(pathExpr *pathExpression, matches []string) ma
 	return params
 }
 
+// detectRoute; 
 // http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-360003.7.2
 func (r RouterJSR311) detectRoute(routes []Route, httpRequest *http.Request) (*Route, error) {
 	ifOk := []Route{}
@@ -136,6 +137,7 @@ func (r RouterJSR311) detectRoute(routes []Route, httpRequest *http.Request) (*R
 	return &outputMediaOk[0], nil
 }
 
+// bestMatchByMedia; 
 // http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-360003.7.2
 // n/m > n/* > */*
 func (r RouterJSR311) bestMatchByMedia(routes []Route, contentType string, accept string) *Route {
@@ -143,6 +145,7 @@ func (r RouterJSR311) bestMatchByMedia(routes []Route, contentType string, accep
 	return &routes[0]
 }
 
+// selectRoutes; 
 // http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-360003.7.2  (step 2)
 func (r RouterJSR311) selectRoutes(dispatcher *WebService, pathRemainder string) []Route {
 	filtered := &sortableRouteCandidates{}
@@ -176,6 +179,7 @@ func (r RouterJSR311) selectRoutes(dispatcher *WebService, pathRemainder string)
 	return matchingRoutes
 }
 
+// detectDispatcher; 
 // http://jsr311.java.net/nonav/releases/1.1/spec/spec3.html#x3-360003.7.2 (step 1)
 func (r RouterJSR311) detectDispatcher(requestPath string, dispatchers []*WebService) (*WebService, string, error) {
 	filtered := &sortableDispatcherCandidates{}

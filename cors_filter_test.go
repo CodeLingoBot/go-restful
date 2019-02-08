@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// go test -v -test.run TestCORSFilter_Preflight ...restful
+// TestCORSFilter_Preflight; go test -v -test.run TestCORSFilter_Preflight ...restful
 // http://www.html5rocks.com/en/tutorials/cors/#toc-handling-a-not-so-simple-request
 func TestCORSFilter_Preflight(t *testing.T) {
 	tearDown()
@@ -57,7 +57,7 @@ func TestCORSFilter_Preflight(t *testing.T) {
 
 }
 
-// go test -v -test.run TestCORSFilter_Actual ...restful
+// TestCORSFilter_Actual; go test -v -test.run TestCORSFilter_Actual ...restful
 // http://www.html5rocks.com/en/tutorials/cors/#toc-handling-a-not-so-simple-request
 func TestCORSFilter_Actual(t *testing.T) {
 	tearDown()
@@ -100,7 +100,7 @@ var allowedDomainInput = []struct {
 	{[]string{".*"}, "example.com", true},
 }
 
-// go test -v -test.run TestCORSFilter_AllowedDomains ...restful
+// TestCORSFilter_AllowedDomains; go test -v -test.run TestCORSFilter_AllowedDomains ...restful
 func TestCORSFilter_AllowedDomains(t *testing.T) {
 	for _, each := range allowedDomainInput {
 		tearDown()

@@ -41,7 +41,7 @@ func NewUserService() *restful.WebService {
 	return ws
 }
 
-// Route Filter (defines FilterFunction)
+// encodingFilter; Route Filter (defines FilterFunction)
 func encodingFilter(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {
 	log.Printf("[encoding-filter] %s,%s\n", req.Request.Method, req.Request.URL)
 	// wrap responseWriter into a compressing one
@@ -53,7 +53,7 @@ func encodingFilter(req *restful.Request, resp *restful.Response, chain *restful
 	chain.ProcessFilter(req, resp)
 }
 
-// GET http://localhost:8080/users/42
+// findUser gets http://localhost:8080/users/42
 //
 func findUser(request *restful.Request, response *restful.Response) {
 	log.Print("findUser")

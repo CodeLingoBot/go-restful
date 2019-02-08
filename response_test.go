@@ -29,7 +29,7 @@ type food struct {
 	Kind string
 }
 
-// go test -v -test.run TestMeasureContentLengthXml ...restful
+// TestMeasureContentLengthXml; go test -v -test.run TestMeasureContentLengthXml ...restful
 func TestMeasureContentLengthXml(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "*/*", routeProduces: []string{"*/*"}, prettyPrint: true}
@@ -39,7 +39,7 @@ func TestMeasureContentLengthXml(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestMeasureContentLengthJson ...restful
+// TestMeasureContentLengthJson; go test -v -test.run TestMeasureContentLengthJson ...restful
 func TestMeasureContentLengthJson(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "*/*", routeProduces: []string{"*/*"}, prettyPrint: true}
@@ -49,7 +49,7 @@ func TestMeasureContentLengthJson(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestMeasureContentLengthJsonNotPretty ...restful
+// TestMeasureContentLengthJsonNotPretty; go test -v -test.run TestMeasureContentLengthJsonNotPretty ...restful
 func TestMeasureContentLengthJsonNotPretty(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "*/*", routeProduces: []string{"*/*"}}
@@ -59,7 +59,7 @@ func TestMeasureContentLengthJsonNotPretty(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestMeasureContentLengthWriteErrorString ...restful
+// TestMeasureContentLengthWriteErrorString; go test -v -test.run TestMeasureContentLengthWriteErrorString ...restful
 func TestMeasureContentLengthWriteErrorString(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "*/*", routeProduces: []string{"*/*"}, prettyPrint: true}
@@ -69,7 +69,7 @@ func TestMeasureContentLengthWriteErrorString(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestStatusIsPassedToResponse ...restful
+// TestStatusIsPassedToResponse; go test -v -test.run TestStatusIsPassedToResponse ...restful
 func TestStatusIsPassedToResponse(t *testing.T) {
 	for _, each := range []struct {
 		write, read int
@@ -88,7 +88,7 @@ func TestStatusIsPassedToResponse(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestStatusCreatedAndContentTypeJson_Issue54 ...restful
+// TestStatusCreatedAndContentTypeJson_Issue54; go test -v -test.run TestStatusCreatedAndContentTypeJson_Issue54 ...restful
 func TestStatusCreatedAndContentTypeJson_Issue54(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "application/json", routeProduces: []string{"application/json"}, prettyPrint: true}
@@ -110,7 +110,7 @@ func (e errorOnWriteRecorder) Write(bytes []byte) (int, error) {
 	return 0, errors.New("fail")
 }
 
-// go test -v -test.run TestLastWriteErrorCaught ...restful
+// TestLastWriteErrorCaught; go test -v -test.run TestLastWriteErrorCaught ...restful
 func TestLastWriteErrorCaught(t *testing.T) {
 	httpWriter := errorOnWriteRecorder{httptest.NewRecorder()}
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "application/json", routeProduces: []string{"application/json"}, prettyPrint: true}
@@ -120,7 +120,7 @@ func TestLastWriteErrorCaught(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestAcceptStarStar_Issue83 ...restful
+// TestAcceptStarStar_Issue83; go test -v -test.run TestAcceptStarStar_Issue83 ...restful
 func TestAcceptStarStar_Issue83(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	//								Accept									Produces
@@ -132,7 +132,7 @@ func TestAcceptStarStar_Issue83(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestAcceptSkipStarStar_Issue83 ...restful
+// TestAcceptSkipStarStar_Issue83; go test -v -test.run TestAcceptSkipStarStar_Issue83 ...restful
 func TestAcceptSkipStarStar_Issue83(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	//								Accept									Produces
@@ -144,7 +144,7 @@ func TestAcceptSkipStarStar_Issue83(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestAcceptXmlBeforeStarStar_Issue83 ...restful
+// TestAcceptXmlBeforeStarStar_Issue83; go test -v -test.run TestAcceptXmlBeforeStarStar_Issue83 ...restful
 func TestAcceptXmlBeforeStarStar_Issue83(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	//								Accept									Produces
@@ -156,7 +156,7 @@ func TestAcceptXmlBeforeStarStar_Issue83(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestWriteHeaderNoContent_Issue124 ...restful
+// TestWriteHeaderNoContent_Issue124; go test -v -test.run TestWriteHeaderNoContent_Issue124 ...restful
 func TestWriteHeaderNoContent_Issue124(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "text/plain", routeProduces: []string{"text/plain"}, prettyPrint: true}
@@ -166,7 +166,7 @@ func TestWriteHeaderNoContent_Issue124(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestStatusCreatedAndContentTypeJson_Issue163 ...restful
+// TestStatusCreatedAndContentTypeJson_Issue163; go test -v -test.run TestStatusCreatedAndContentTypeJson_Issue163 ...restful
 func TestStatusCreatedAndContentTypeJson_Issue163(t *testing.T) {
 	httpWriter := httptest.NewRecorder()
 	resp := Response{ResponseWriter: httpWriter, requestAccept: "application/json", routeProduces: []string{"application/json"}, prettyPrint: true}

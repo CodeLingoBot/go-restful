@@ -47,12 +47,12 @@ type Route struct {
 	Deprecated bool
 }
 
-// Initialize for Route
+// postBuild; Initialize for Route
 func (r *Route) postBuild() {
 	r.pathParts = tokenizePath(r.Path)
 }
 
-// Create Request and Response from their http versions
+// wrapRequestResponse; Create Request and Response from their http versions
 func (r *Route) wrapRequestResponse(httpWriter http.ResponseWriter, httpRequest *http.Request, pathParams map[string]string) (*Request, *Response) {
 	wrappedRequest := NewRequest(httpRequest)
 	wrappedRequest.pathParameters = pathParams
@@ -74,7 +74,7 @@ func (r *Route) dispatchWithFilters(wrappedRequest *Request, wrappedResponse *Re
 	}
 }
 
-// Return whether the mimeType matches to what this Route can produce.
+// matchesAccept; Return whether the mimeType matches to what this Route can produce.
 func (r Route) matchesAccept(mimeTypesWithQuality string) bool {
 	parts := strings.Split(mimeTypesWithQuality, ",")
 	for _, each := range parts {
@@ -98,7 +98,7 @@ func (r Route) matchesAccept(mimeTypesWithQuality string) bool {
 	return false
 }
 
-// Return whether this Route can consume content with a type specified by mimeTypes (can be empty).
+// matchesContentType; Return whether this Route can consume content with a type specified by mimeTypes (can be empty).
 func (r Route) matchesContentType(mimeTypes string) bool {
 
 	if len(r.Consumes) == 0 {
@@ -135,7 +135,7 @@ func (r Route) matchesContentType(mimeTypes string) bool {
 	return false
 }
 
-// Tokenize an URL path using the slash separator ; the result does not have empty tokens
+// tokenizePath; an URL path using the slash separator ; the result does not have empty tokens
 func tokenizePath(path string) []string {
 	if "/" == path {
 		return []string{}
@@ -143,7 +143,7 @@ func tokenizePath(path string) []string {
 	return strings.Split(strings.Trim(path, "/"), "/")
 }
 
-// for debugging
+// String; for debugging
 func (r Route) String() string {
 	return r.Method + " " + r.Path
 }

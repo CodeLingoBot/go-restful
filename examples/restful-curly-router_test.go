@@ -34,7 +34,7 @@ func (u UserResource) Register(container *restful.Container) {
 	container.Add(ws)
 }
 
-// GET http://localhost:8090/users/1
+// findUser gets http://localhost:8090/users/1
 //
 func (u UserResource) findUser(request *restful.Request, response *restful.Response) {
 	id := request.PathParameter("user-id")
@@ -47,7 +47,7 @@ func (u UserResource) findUser(request *restful.Request, response *restful.Respo
 	}
 }
 
-// POST http://localhost:8090/users
+// updateUser; POST http://localhost:8090/users
 // <User><Id>1</Id><Name>Melissa Raspberry</Name></User>
 //
 func (u *UserResource) updateUser(request *restful.Request, response *restful.Response) {
@@ -62,7 +62,7 @@ func (u *UserResource) updateUser(request *restful.Request, response *restful.Re
 	}
 }
 
-// PUT http://localhost:8090/users/1
+// createUser; PUT http://localhost:8090/users/1
 // <User><Id>1</Id><Name>Melissa</Name></User>
 //
 func (u *UserResource) createUser(request *restful.Request, response *restful.Response) {
@@ -78,7 +78,7 @@ func (u *UserResource) createUser(request *restful.Request, response *restful.Re
 	}
 }
 
-// DELETE http://localhost:8090/users/1
+// removeUser; DELETE http://localhost:8090/users/1
 //
 func (u *UserResource) removeUser(request *restful.Request, response *restful.Response) {
 	id := request.PathParameter("user-id")

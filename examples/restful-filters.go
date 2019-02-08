@@ -48,26 +48,26 @@ func NewUserService() *restful.WebService {
 	return ws
 }
 
-// Global Filter
+// globalLogging; Filter
 func globalLogging(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {
 	log.Printf("[global-filter (logger)] %s,%s\n", req.Request.Method, req.Request.URL)
 	chain.ProcessFilter(req, resp)
 }
 
-// WebService Filter
+// webserviceLogging; Filter
 func webserviceLogging(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {
 	log.Printf("[webservice-filter (logger)] %s,%s\n", req.Request.Method, req.Request.URL)
 	chain.ProcessFilter(req, resp)
 }
 
-// WebService (post-process) Filter (as a struct that defines a FilterFunction)
+// measureTime; (post-process) Filter (as a struct that defines a FilterFunction)
 func measureTime(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {
 	now := time.Now()
 	chain.ProcessFilter(req, resp)
 	log.Printf("[webservice-filter (timer)] %v\n", time.Now().Sub(now))
 }
 
-// Route Filter (defines FilterFunction)
+// routeLogging; Filter (defines FilterFunction)
 func routeLogging(req *restful.Request, resp *restful.Response, chain *restful.FilterChain) {
 	log.Printf("[route-filter (logger)] %s,%s\n", req.Request.Method, req.Request.URL)
 	chain.ProcessFilter(req, resp)
@@ -99,14 +99,14 @@ func (c *CountFilter) routeCounter(req *restful.Request, resp *restful.Response,
 	chain.ProcessFilter(req, resp)
 }
 
-// GET http://localhost:8080/users
+// getAllUsers gets http://localhost:8080/users
 //
 func getAllUsers(request *restful.Request, response *restful.Response) {
 	log.Print("getAllUsers")
 	response.WriteEntity(UserList{[]User{{"42", "Gandalf"}, {"3.14", "Pi"}}})
 }
 
-// GET http://localhost:8080/users/42
+// findUser gets http://localhost:8080/users/42
 //
 func findUser(request *restful.Request, response *restful.Response) {
 	log.Print("findUser")

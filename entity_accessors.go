@@ -137,7 +137,7 @@ func (e entityJSONAccess) Write(resp *Response, status int, v interface{}) error
 	return writeJSON(resp, status, e.ContentType, v)
 }
 
-// write marshalls the value to JSON and set the Content-Type Header.
+// writeJSON marshalls the value to JSON and set the Content-Type Header.
 func writeJSON(resp *Response, status int, contentType string, v interface{}) error {
 	if v == nil {
 		resp.WriteHeader(status)

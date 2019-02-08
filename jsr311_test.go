@@ -75,7 +75,7 @@ func TestDetectDispatcher(t *testing.T) {
 // Step 2 tests
 //
 
-// go test -v -test.run TestISSUE_179 ...restful
+// TestISSUE_179; go test -v -test.run TestISSUE_179 ...restful
 func TestISSUE_179(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Route(ws1.GET("/v1/category/{param:*}").To(dummy))
@@ -83,7 +83,7 @@ func TestISSUE_179(t *testing.T) {
 	t.Logf("%v", routes)
 }
 
-// go test -v -test.run TestISSUE_30 ...restful
+// TestISSUE_30; go test -v -test.run TestISSUE_30 ...restful
 func TestISSUE_30(t *testing.T) {
 	ws1 := new(WebService).Path("/users")
 	ws1.Route(ws1.GET("/{id}").To(dummy))
@@ -98,7 +98,7 @@ func TestISSUE_30(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestISSUE_34 ...restful
+// TestISSUE_34; go test -v -test.run TestISSUE_34 ...restful
 func TestISSUE_34(t *testing.T) {
 	ws1 := new(WebService).Path("/")
 	ws1.Route(ws1.GET("/{type}/{id}").To(dummy))
@@ -113,7 +113,7 @@ func TestISSUE_34(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestISSUE_34_2 ...restful
+// TestISSUE_34_2; go test -v -test.run TestISSUE_34_2 ...restful
 func TestISSUE_34_2(t *testing.T) {
 	ws1 := new(WebService).Path("/")
 	// change the registration order
@@ -128,7 +128,7 @@ func TestISSUE_34_2(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestISSUE_137 ...restful
+// TestISSUE_137; go test -v -test.run TestISSUE_137 ...restful
 func TestISSUE_137(t *testing.T) {
 	ws1 := new(WebService)
 	ws1.Route(ws1.GET("/hello").To(dummy))
@@ -198,7 +198,7 @@ func containsRoutePath(routes []Route, path string, t *testing.T) bool {
 	return false
 }
 
-// go test -v -test.run TestSortableRouteCandidates ...restful
+// TestSortableRouteCandidates; go test -v -test.run TestSortableRouteCandidates ...restful
 func TestSortableRouteCandidates(t *testing.T) {
 	fixture := &sortableRouteCandidates{}
 	r1 := routeCandidate{matchesCount: 0, literalCount: 0, nonDefaultCount: 0}

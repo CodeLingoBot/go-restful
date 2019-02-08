@@ -99,7 +99,7 @@ func (u ProfileApi) register() {
 	restful.Add(ws)
 }
 
-// POST http://localhost:8080/profiles
+// insert; POST http://localhost:8080/profiles
 // {"first_name": "Ivan", "nick_name": "Socks", "last_name": "Hawkes"}
 //
 func (u *ProfileApi) insert(r *restful.Request, w *restful.Response) {
@@ -134,7 +134,7 @@ func (u *ProfileApi) insert(r *restful.Request, w *restful.Response) {
 	w.WriteEntity(p)
 }
 
-// GET http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
+// read gets http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
 //
 func (u ProfileApi) read(r *restful.Request, w *restful.Response) {
 	c := appengine.NewContext(r.Request)
@@ -168,7 +168,7 @@ func (u ProfileApi) read(r *restful.Request, w *restful.Response) {
 	w.WriteEntity(p)
 }
 
-// PUT http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
+// update; PUT http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
 // {"first_name": "Ivan", "nick_name": "Socks", "last_name": "Hawkes"}
 //
 func (u *ProfileApi) update(r *restful.Request, w *restful.Response) {
@@ -226,7 +226,7 @@ func (u *ProfileApi) update(r *restful.Request, w *restful.Response) {
 	w.WriteHeader(http.StatusNoContent)
 }
 
-// DELETE http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
+// remove; DELETE http://localhost:8080/profiles/ahdkZXZ-ZmVkZXJhdGlvbi1zZXJ2aWNlc3IVCxIIcHJvZmlsZXMYgICAgICAgAoM
 //
 func (u *ProfileApi) remove(r *restful.Request, w *restful.Response) {
 	c := appengine.NewContext(r.Request)

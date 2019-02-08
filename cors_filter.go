@@ -188,7 +188,7 @@ func (c CrossOriginResourceSharing) isValidAccessControlRequestHeader(header str
 	return false
 }
 
-// Take a list of strings and compile them into a list of regular expressions.
+// compileRegexps; Take a list of strings and compile them into a list of regular expressions.
 func compileRegexps(regexpStrings []string) ([]*regexp.Regexp, error) {
 	regexps := []*regexp.Regexp{}
 	for _, regexpStr := range regexpStrings {

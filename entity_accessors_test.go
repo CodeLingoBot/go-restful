@@ -35,7 +35,7 @@ func (kv *keyvalue) Write(resp *Response, status int, v interface{}) error {
 	return nil
 }
 
-// go test -v -test.run TestKeyValueEncoding ...restful
+// TestKeyValueEncoding; go test -v -test.run TestKeyValueEncoding ...restful
 func TestKeyValueEncoding(t *testing.T) {
 	type Book struct {
 		Title         string

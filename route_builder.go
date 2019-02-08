@@ -238,7 +238,7 @@ func (b *RouteBuilder) If(condition RouteSelectionConditionFunction) *RouteBuild
 	return b
 }
 
-// If no specific Route path then set to rootPath
+// copyDefaults; If no specific Route path then set to rootPath
 // If no specific Produces then set to rootProduces
 // If no specific Consumes then set to rootConsumes
 func (b *RouteBuilder) copyDefaults(rootProduces, rootConsumes []string) {

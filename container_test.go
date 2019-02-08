@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-// go test -v -test.run TestContainer_computeAllowedMethods ...restful
+// TestContainer_computeAllowedMethods; go test -v -test.run TestContainer_computeAllowedMethods ...restful
 func TestContainer_computeAllowedMethods(t *testing.T) {
 	wc := NewContainer()
 	ws1 := new(WebService).Path("/users")

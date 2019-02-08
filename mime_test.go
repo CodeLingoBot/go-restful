@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-// go test -v -test.run TestSortMimes ...restful
+// TestSortMimes; go test -v -test.run TestSortMimes ...restful
 func TestSortMimes(t *testing.T) {
 	accept := "text/html; q=0.8, text/plain, image/gif,  */*; q=0.01, image/jpeg"
 	result := sortedMimes(accept)

@@ -135,7 +135,7 @@ func TestContentType415_POST_Issue170(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestContentType406PlainJson ...restful
+// TestContentType406PlainJson; go test -v -test.run TestContentType406PlainJson ...restful
 func TestContentType406PlainJson(t *testing.T) {
 	tearDown()
 	TraceLogger(testLogger{t})
@@ -220,7 +220,7 @@ func TestRemoveLastRoute(t *testing.T) {
 	}
 }
 
-// go test -v -test.run TestContentTypeOctet_Issue170 ...restful
+// TestContentTypeOctet_Issue170; go test -v -test.run TestContentTypeOctet_Issue170 ...restful
 func TestContentTypeOctet_Issue170(t *testing.T) {
 	tearDown()
 	Add(newGetConsumingOctetStreamService())
